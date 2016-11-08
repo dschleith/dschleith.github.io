@@ -1,0 +1,254 @@
+/*
+
+Created by Travis Benton. You're welcome to use this code/design in whatever project you'd like,
+I just ask that you credit me. Thanks!
+
+http://travisbenton.com/
+
+*/
+
+/*--General Style -------------------*/
+
+*, *:before, *:after {
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 21px;
+  font-family: 'Open Sans';
+}
+
+html, body {
+  height: 100%;
+}
+
+h1 {
+  font-family: 'Raleway';
+  font-size: 2.7em;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -2px;
+  color: #222;
+  margin-bottom: .3em;
+}
+
+p {
+  font-weight: 200;
+}
+
+a {
+  color: #000;
+}
+
+a:hover{
+  color: #525252;
+}
+
+/*--Reusable Classes -------------------*/
+.fl {
+  float: left;
+}
+
+.fr {
+  float: right;
+}
+
+img.fl, img.fr {
+  margin: 20px;
+}
+
+.lighten-color {
+  color: #525252;
+}
+
+.no-select {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/*--Specific Classes -------------------*/
+/* Header */
+.hero {
+  width: 40%;
+  height: 100%;
+  position: fixed;
+  /*background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.4) 0%, transparent 30%), url(/web/20160223192931/http://danielschleith.com/web/20140518205319/https://fbcdn-sphotos-b-a.akamaihd.net/hphotos-ak-prn2/t1/1621692_10151849144731176_543191620_n.jpg);
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4) 0%, transparent 30%), url(/web/20160223192931/http://danielschleith.com/web/20140518205319/https://fbcdn-sphotos-b-a.akamaihd.net/hphotos-ak-prn2/t1/1621692_10151849144731176_543191620_n.jpg);*/
+  background-size: cover;
+  background-position: center center;
+  pointer-events: none;
+}
+/* Header - Nav */
+.hero .hamb-wrap {
+  height: 30px;
+  width: 40px;
+  position: absolute;
+  top: 25px;
+  left: 20px;
+  cursor: pointer;
+  z-index: 2;
+  pointer-events: all;
+}
+.hero .hamb {
+  height: 3px;
+  width: 35px;
+  background: #fff;
+  position: absolute;
+  top: 10px;
+  left: 0;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+  border-radius: 10% 10% 10% 10% / 40% 40% 40% 40%;
+}
+.hero .hamb:before, .hero .hamb:after {
+  content: '';
+  position: absolute;
+  background: #fff;
+  height: 3px;
+  width: 100%;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+  border-radius: 10% 10% 10% 10% / 50% 50% 50% 50%;
+}
+.hero .hamb:before {
+  top: 8px;
+}
+.hero .hamb:after {
+  top: -8px;
+}
+.hero .active {
+  background: none;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+.hero .active:before, .hero .active:after {
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+  top: 0;
+}
+.hero .active:before {
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+.hero .active:after {
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+.hero .logo {
+  font-family: 'Over the Rainbow';
+  font-size: 1.7em;
+  margin: 0 0 0 70px;
+}
+.hero .logo a {
+  text-decoration: none;
+  color: #fff;
+}
+.hero nav {
+  pointer-events: all;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  padding-top: 60px;
+  font-family: 'Raleway';
+  font-size: 2em;
+  display: none;
+  background: rgba(0, 0, 0, 0.8);
+}
+.hero nav ul {
+  margin: 0 0 0 25px;
+  padding: 0;
+}
+.hero nav li {
+  list-style-type: none;
+  margin: 25px 0;
+  position: relative;
+}
+.hero nav a {
+  text-decoration: none;
+  color: #fff;
+  text-transform: uppercase;
+}
+/* Main content */
+.content {
+  width: 60%;
+  min-height: 100%;
+  margin-left: 40%;
+  padding: 4em 1em 1em;
+  overflow: hidden;
+  position: relative;
+  background: white;
+}
+/* Social media buttons */
+.fa {
+  font-size: 1.6em;
+  color: #313131;
+}
+.social a {
+  text-decoration: none;
+}
+.bio-img {
+  opacity: 0;
+  -webkit-transition: opacity .7s;
+  transition: opacity .7s;
+}
+.visible {
+  opacity: 1;
+}
+
+#map {
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 40%;
+}
+
+@media (max-width: 768px) {
+  /*--General Style @768px-------------------*/
+  html {
+    font-size: 18px;
+  }
+  /*--Specific Classes @768px-------------------*/
+  /* Header */
+  .hero,
+  #map {
+    height: 300px;
+    width: 100%;
+  }
+
+  .hero {
+    display: block;
+    position: relative;
+    padding: 1px;
+  }
+  /* Header - Nav */
+  .hero nav {
+    font-size: 1.7em;
+  }
+  /* Main content */
+  .content {
+    margin-left: 0;
+    padding-top: 0;
+    width: 100%;
+  }
+}
+@media (max-width: 480px) {
+  /*--General Style @768px-------------------*/
+  img {
+    width: 100%;
+    height: auto;
+  }
+  /*--Reusable Classes @768px-------------------*/
+  img.fl, img.fr {
+    float: none;
+    margin: 10px 0;
+  }
+  /*--Specific Classes @768px-------------------*/
+}
